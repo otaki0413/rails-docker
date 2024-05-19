@@ -15,7 +15,7 @@ git clone https://github.com/otaki0413/rails-docker.git
 ### データベース 作成（※初回のみ）
 
 ```
-docker-compose run --rm web rails:db-create
+docker-compose run --rm web rails db:create
 ```
 
 ### マイグレーション実行（※初回と随時）
