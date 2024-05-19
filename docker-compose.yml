@@ -1,0 +1,25 @@
+version: "3"
+services:
+  web:
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/rails-docker/
+    command: bundle exec rails s -p 3000 -b '0.0.0.0'
+    environment:
+      - "DATABASE_PASSWORD=postgres"
+    tty: true
+    stdin_open: true
+    depends_on:
+      - db
+  db:
+    image: postgres:12
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    environment:
+      - "POSTGRES_USER=postgres"
+      - "POSTGRES_PASSWORD=postgres"
+
+volumes:
+  db-data:
