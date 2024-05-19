@@ -18,14 +18,6 @@ git clone https://github.com/otaki0413/rails-docker.git
 docker-compose run --rm web rails db:create
 ```
 
-### マイグレーション実行（※初回と随時）
-
-- web(rails)用のコンテナが立ち上がってることを確認して、以下コマンド実行
-
-```
-docker-compose exec web rails db:migrate
-```
-
 ### コンテナ作成 & コンテナ起動
 
 ```
