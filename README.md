@@ -1,24 +1,37 @@
-# README
+## 本リポジトリの環境
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+- Ruby(3.2.2)
+- Ruby on rails(7.0.6)
+- PostgreSQL(12)
 
-Things you may want to cover:
+## 環境構築手順
 
-* Ruby version
+### 本リポジトリをクローンする
 
-* System dependencies
+```
+git clone https://github.com/otaki0413/rails-docker.git
+```
 
-* Configuration
+### データベース 作成（※初回のみ）
 
-* Database creation
+```
+docker-compose run --rm web rails db:create
+```
 
-* Database initialization
+### コンテナ作成 & コンテナ起動
 
-* How to run the test suite
+```
+docker-compose up -d
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+rails コンテナと DB コンテナが起動するので、`http://localhost:3000`にアクセスできれば OK
 
-* Deployment instructions
+### コンテナ停止・コンテナ削除
 
-* ...
+```
+# コンテナの停止
+docker-compose stop
+
+# コンテナの削除
+docker-compose down
+```
